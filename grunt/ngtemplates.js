@@ -6,17 +6,12 @@ module.exports = {
     bootstrap: function(module, script) {
       return 'angular.module(\'SwaggerEditor\')' +
       '.run([\'$templateCache\', function($templateCache) {' + script + '}]);';
-    },
-    htmlmin: {
-      singleQuotes: true,
-      collapseWhitespace: true,
-      collapseBooleanAttributes: true,
-      removeCommentsFromCDATA: true,
-      removeOptionalTags: true,
-      assetsDirs: ['dist', 'dist/images']
     }
   },
   dist: {
+    options: {
+      htmlmin: '<%= htmlmin.dist %>'
+    },
     src: [
       'app/templates/**/*.html',
       'app/views/**/*.html'
@@ -24,9 +19,6 @@ module.exports = {
     dest: 'dist/scripts/templates.js'
   },
   app: {
-    options: {
-      htmlmin: false
-    },
     src: [
       'app/templates/**/*.html',
       'app/views/**/*.html'
