@@ -15,6 +15,7 @@ module.exports = function (grunt) {
       'less:server',
       'autoprefixer',
       'connect:livereload',
+      'inline',
       'watch'
     ]);
   });
@@ -59,7 +60,8 @@ module.exports = function (grunt) {
     'uglify',
     'rev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'inline'
   ]);
 
   grunt.registerTask('default', [
