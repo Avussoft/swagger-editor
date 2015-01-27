@@ -1,6 +1,6 @@
 'use strict';
 
-// $(function () {
+$(function () {
 
   // Try bootstrapping the app with embedded defaults if it exists
   var embeddedDefaults = window.$$embeddedDefaults;
@@ -17,4 +17,4 @@
   }).fail(function () {
     console.error('Failed to load defaults.json at', '/config/defaults.json');
   });
-// });
+});

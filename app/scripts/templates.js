@@ -1,6 +1,6 @@
 angular.module('SwaggerEditor').run(['$templateCache', function($templateCache) {  'use strict';
 
-  $templateCache.put('app/templates/about.html',
+  $templateCache.put('templates/about.html',
     "<div class=\"modal-header\">\n" +
     "  <h3 class=\"modal-title\">About Swagger Editor</h3>\n" +
     "</div>\n" +
@@ -24,11 +24,11 @@ angular.module('SwaggerEditor').run(['$templateCache', function($templateCache) 
     "</div>\n" +
     "<div class=\"modal-footer\">\n" +
     "  <button class=\"btn btn-primary\" ng-click=\"close()\">Close</button>\n" +
-    "</div>\n"
+    "</div>"
   );
 
 
-  $templateCache.put('app/templates/auth/api-key.html',
+  $templateCache.put('templates/auth/api-key.html',
     "<div class=\"modal-header\">\n" +
     "  <h3 class=\"modal-title\">API Key Authentication</h3>\n" +
     "</div>\n" +
@@ -44,13 +44,12 @@ angular.module('SwaggerEditor').run(['$templateCache', function($templateCache) 
     "</div>\n" +
     "<div class=\"modal-footer\">\n" +
     "  <button class=\"btn btn-warning\" ng-click=\"cancel()\">Cancel</button>\n" +
-    "  <button class=\"btn btn-primary\" ng-click=\"authenticate()\"\n" +
-    "    ng-disabled=\"!apiKey\">Authenticate</button>\n" +
-    "</div>\n"
+    "  <button class=\"btn btn-primary\" ng-click=\"authenticate()\" ng-disabled=\"!apiKey\">Authenticate</button>\n" +
+    "</div>"
   );
 
 
-  $templateCache.put('app/templates/auth/basic.html',
+  $templateCache.put('templates/auth/basic.html',
     "<div class=\"modal-header\">\n" +
     "  <h3 class=\"modal-title\">HTTP Basic Authentication</h3>\n" +
     "</div>\n" +
@@ -72,13 +71,12 @@ angular.module('SwaggerEditor').run(['$templateCache', function($templateCache) 
     "</div>\n" +
     "<div class=\"modal-footer\">\n" +
     "  <button class=\"btn btn-warning\" ng-click=\"cancel()\">Cancel</button>\n" +
-    "  <button class=\"btn btn-primary\" ng-click=\"authenticate()\"\n" +
-    "    ng-disabled=\"!username || !password\">Authenticate</button>\n" +
-    "</div>\n"
+    "  <button class=\"btn btn-primary\" ng-click=\"authenticate()\" ng-disabled=\"!username || !password\">Authenticate</button>\n" +
+    "</div>"
   );
 
 
-  $templateCache.put('app/templates/auth/oauth2.html',
+  $templateCache.put('templates/auth/oauth2.html',
     "<div class=\"modal-header\">\n" +
     "  <h3 class=\"modal-title\">OAuth 2.0 Authentication</h3>\n" +
     "</div>\n" +
@@ -95,13 +93,12 @@ angular.module('SwaggerEditor').run(['$templateCache', function($templateCache) 
     "</div>\n" +
     "<div class=\"modal-footer\">\n" +
     "  <button class=\"btn btn-warning\" ng-click=\"cancel()\">Cancel</button>\n" +
-    "  <button class=\"btn btn-primary\" ng-click=\"authenticate()\"\n" +
-    "    ng-disabled=\"!accessToken\">Authenticate</button>\n" +
-    "</div>\n"
+    "  <button class=\"btn btn-primary\" ng-click=\"authenticate()\" ng-disabled=\"!accessToken\">Authenticate</button>\n" +
+    "</div>"
   );
 
 
-  $templateCache.put('app/templates/code-gen-error-modal.html',
+  $templateCache.put('templates/code-gen-error-modal.html',
     "<div class=\"modal-header\">\n" +
     "  <h3 class=\"modal-title\">Code Generator Error</h3>\n" +
     "</div>\n" +
@@ -112,11 +109,11 @@ angular.module('SwaggerEditor').run(['$templateCache', function($templateCache) 
     "</div>\n" +
     "<div class=\"modal-footer\">\n" +
     "  <button class=\"btn btn-warning\" ng-click=\"cancel()\">OK</button>\n" +
-    "</div>\n"
+    "</div>"
   );
 
 
-  $templateCache.put('app/templates/download-docs.html',
+  $templateCache.put('templates/download-docs.html',
     "<div class=\"modal-header\">\n" +
     "  <h3 class=\"modal-title\">Download HTML documentation</h3>\n" +
     "</div>\n" +
@@ -124,17 +121,16 @@ angular.module('SwaggerEditor').run(['$templateCache', function($templateCache) 
     "  <p>Click link below to download HTML documentations.</p>\n" +
     "  <p>The downloaded file will be self contained with everything required for this Swagger document.</p>\n" +
     "  <p ng-if=\"!ready\">Generating document...</p>\n" +
-    "  <a ng-if=\"ready\" download=\"swagger.html\" href=\"{{downloadHref}}\" downloadUrl=\"{{downloadUrl}}\" class=\"btn\">Download</a>\n" +
+    "  <a ng-if=\"ready\" download=\"swagger.html\" href=\"{{downloadHref}}\" downloadurl=\"{{downloadUrl}}\" class=\"btn\">Download</a>\n" +
     "</div>\n" +
     "<div class=\"modal-footer\">\n" +
     "  <button class=\"btn btn-primary\" ng-click=\"cancel()\">Close</button>\n" +
-    "</div>\n"
+    "</div>"
   );
 
 
-  $templateCache.put('app/templates/error-presenter.html',
-    "<div class=\"error-presenter {{isOnlyWarnings() ? 'warning' : 'error'}}\"\n" +
-    "  ng-controller=\"ErrorPresenterCtrl\">\n" +
+  $templateCache.put('templates/error-presenter.html',
+    "<div class=\"error-presenter {{isOnlyWarnings() ? 'warning' : 'error'}}\" ng-controller=\"ErrorPresenterCtrl\">\n" +
     "  <header class=\"error-header\" ng-click=\"toggleCollapse()\">\n" +
     "    <h4>{{getTitle()}}</h4>\n" +
     "    <span class=\"collapse-button\">{{isCollapsed ? 'Open' : 'Collapse'}}</span>\n" +
@@ -147,16 +143,15 @@ angular.module('SwaggerEditor').run(['$templateCache', function($templateCache) 
     "    <p class=\"error-description\">\n" +
     "      <span>{{getDescription(error)}}</span>\n" +
     "    </p>\n" +
-    "    <a ng-click=\"goToLineOfError(error)\"\n" +
-    "      ng-if=\"mode === 'edit' && showLineJumpLink(error)\">Jump to line {{getLineNumber(error)}}</a>\n" +
+    "    <a ng-click=\"goToLineOfError(error)\" ng-if=\"mode === 'edit' && showLineJumpLink(error)\">Jump to line {{getLineNumber(error)}}</a>\n" +
     "    <h6>Details</h6>\n" +
     "    <json-formatter json=\"error\" open=\"0\"></json-formatter>\n" +
     "  </div>\n" +
-    "</div>\n"
+    "</div>"
   );
 
 
-  $templateCache.put('app/templates/file-import.html',
+  $templateCache.put('templates/file-import.html',
     "<div class=\"modal-header\">\n" +
     "  <h3 class=\"modal-title\">Import a File</h3>\n" +
     "</div>\n" +
@@ -168,11 +163,11 @@ angular.module('SwaggerEditor').run(['$templateCache', function($templateCache) 
     "<div class=\"modal-footer\">\n" +
     "  <button class=\"btn btn-warning\" ng-click=\"cancel()\">Cancel</button>\n" +
     "  <button class=\"btn btn-primary\" ng-click=\"ok()\" ng-disabled=\"isInvalidFile() || !isFileSelected()\">Import</button>\n" +
-    "</div>\n"
+    "</div>"
   );
 
 
-  $templateCache.put('app/templates/import.html',
+  $templateCache.put('templates/import.html',
     "<div class=\"modal-header\">\n" +
     "<h3 class=\"modal-title\">Import a File</h3>\n" +
     "</div>\n" +
@@ -184,11 +179,11 @@ angular.module('SwaggerEditor').run(['$templateCache', function($templateCache) 
     "<div class=\"modal-footer\">\n" +
     "  <button class=\"btn btn-warning\" ng-click=\"cancel()\">Cancel</button>\n" +
     "  <button class=\"btn btn-primary\" ng-click=\"ok()\" ng-disabled=\"isInvalidFile() || !isFileSelected()\">Import</button>\n" +
-    "</div>\n"
+    "</div>"
   );
 
 
-  $templateCache.put('app/templates/intro.html',
+  $templateCache.put('templates/intro.html',
     "<div class=\"about-pane\">\n" +
     "  <div class=\"modal-header\">\n" +
     "    <h1 class=\"overlay-title\">API Design First Workflow</h1>\n" +
@@ -201,13 +196,11 @@ angular.module('SwaggerEditor').run(['$templateCache', function($templateCache) 
     "  <div class=\"yaml-author\">Write API specs in YAML...</div>\n" +
     "  <div class=\"sw-preview\">...Preview documentation in Swagger</div>\n" +
     "  <button class=\"btn btn-warning btn-intro\" ng-click=\"toggleAboutEditor(false)\">Got it!</button>\n" +
-    "</div>\n" +
-    "\n" +
-    "\n"
+    "</div>"
   );
 
 
-  $templateCache.put('app/templates/open-examples.html',
+  $templateCache.put('templates/open-examples.html',
     "<div class=\"modal-header\">\n" +
     "  <h3 class=\"modal-title\">Open An Example File</h3>\n" +
     "</div>\n" +
@@ -218,22 +211,21 @@ angular.module('SwaggerEditor').run(['$templateCache', function($templateCache) 
     "<div class=\"modal-footer\">\n" +
     "  <button class=\"btn btn-warning\" ng-click=\"cancel()\">Cancel</button>\n" +
     "  <button class=\"btn btn-primary\" ng-click=\"open(selectedFile)\">Open</button>\n" +
-    "</div>\n"
+    "</div>"
   );
 
 
-  $templateCache.put('app/templates/operation.html',
-    "<li class='{{operation.operationName | lowercase}} operation' scroll-into-view-when=\"isInFocus(['paths', path.pathName, operation.operationName])\">\n" +
+  $templateCache.put('templates/operation.html',
+    "<li class=\"{{operation.operationName | lowercase}} operation\" scroll-into-view-when=\"isInFocus(['paths', path.pathName, operation.operationName])\">\n" +
     "  <header ng-click=\"toggle(['paths', path.pathName, operation.operationName])\">\n" +
-    "    <a class=\"focus-editor\" ng-click=\"focusEdit($event, ['paths', path.pathName, operation.operationName])\" ng-if=\"mode === 'preview'\"\n" +
-    "      tooltip-placement=\"left\" tooltip=\"Jump to YAML\"></a>\n" +
-    "    <div class='http-method' class=\"toggleOperation\">{{operation.operationName | uppercase}}</div>\n" +
+    "    <a class=\"focus-editor\" ng-click=\"focusEdit($event, ['paths', path.pathName, operation.operationName])\" ng-if=\"mode === 'preview'\" tooltip-placement=\"left\" tooltip=\"Jump to YAML\"></a>\n" +
+    "    <div class=\"http-method\" class=\"toggleOperation\">{{operation.operationName | uppercase}}</div>\n" +
     "    <div class=\"summary\">\n" +
     "        {{operation.summary || operation.description | limitTo: 140 }}\n" +
     "    </div>\n" +
     "  </header>\n" +
     "\n" +
-    "  <div class='content' collapse-when=\"isCollapsed(['paths', path.pathName, operation.operationName])\">\n" +
+    "  <div class=\"content\" collapse-when=\"isCollapsed(['paths', path.pathName, operation.operationName])\">\n" +
     "    <div class=\"tags\">\n" +
     "      <span class=\"tag tag-color-{{tagIndexFor(tag)}}\" ng-repeat=\"tag in operation.tags\">{{tag}}</span>\n" +
     "    </div>\n" +
@@ -257,7 +249,7 @@ angular.module('SwaggerEditor').run(['$templateCache', function($templateCache) 
     "          </thead>\n" +
     "          <tbody>\n" +
     "            <tr ng-repeat=\"parameter in getParameters() track by $index\">\n" +
-    "              <td >\n" +
+    "              <td>\n" +
     "                <a ng-click=\"focusEdit($event, ['paths', path.pathName, operation.operationName, 'parameters', $index], -1)\">\n" +
     "                  <span class=\"mono\">{{parameter.name}}</span>\n" +
     "                </a>\n" +
@@ -323,23 +315,15 @@ angular.module('SwaggerEditor').run(['$templateCache', function($templateCache) 
     "    </section>\n" +
     "\n" +
     "    <section class=\"try-operation\" ng-if=\"enableTryIt\">\n" +
-    "      <button class=\"border-only try-it\"\n" +
-    "        ng-class=\"{trying: isTryOpen}\"\n" +
-    "        ng-click=\"toggleTry()\"\n" +
-    "        ng-if=\"!isTryOpen\"\n" +
-    "      >Try this operation</button>\n" +
-    "      <button class=\"border-only red close-try\"\n" +
-    "        ng-class=\"{'is-open': isTryOpen}\"\n" +
-    "        ng-click=\"toggleTry()\"\n" +
-    "        ng-if=\"isTryOpen\"\n" +
-    "      >Close</button>\n" +
+    "      <button class=\"border-only try-it\" ng-class=\"{trying: isTryOpen}\" ng-click=\"toggleTry()\" ng-if=\"!isTryOpen\">Try this operation</button>\n" +
+    "      <button class=\"border-only red close-try\" ng-class=\"{'is-open': isTryOpen}\" ng-click=\"toggleTry()\" ng-if=\"isTryOpen\">Close</button>\n" +
     "      <div ng-include=\"'templates/try-operation.html'\" ng-if=\"isTryOpen\"></div>\n" +
     "    </section>\n" +
-    "</li>\n"
+    "</div></li>"
   );
 
 
-  $templateCache.put('app/templates/paste-json.html',
+  $templateCache.put('templates/paste-json.html',
     "<div class=\"modal-header\">\n" +
     "  <h3 class=\"modal-title\">Paste Swagger JSON</h3>\n" +
     "</div>\n" +
@@ -357,11 +341,11 @@ angular.module('SwaggerEditor').run(['$templateCache', function($templateCache) 
     "<div class=\"modal-footer\">\n" +
     "  <button class=\"btn btn-warning\" ng-click=\"cancel()\">Cancel</button>\n" +
     "  <button class=\"btn btn-primary\" ng-click=\"ok()\" ng-disabled=\"!canImport\">Import</button>\n" +
-    "</div>\n"
+    "</div>"
   );
 
 
-  $templateCache.put('app/templates/path.html',
+  $templateCache.put('templates/path.html',
     "<li class=\"path\">\n" +
     "  <header ng-click=\"$parent.toggle(['paths', path.pathName])\">\n" +
     "    <h2>\n" +
@@ -370,17 +354,16 @@ angular.module('SwaggerEditor').run(['$templateCache', function($templateCache) 
     "    <span class=\"on-hover\">\n" +
     "      <a ng-click=\"toggleAll(['paths', path.pathName])\" ng-hide=\"isAllFolded(['paths', path.pathName]) || isCollapsed(['paths', path.pathName])\" stop-event>List all operations</a>\n" +
     "    </span>\n" +
-    "    <a class=\"jump-to-yaml\" ng-click=\"focusEdit($event, ['paths', path.pathName]) \"tooltip-placement=\"left\" tooltip=\"Jump to YAML\"></a>\n" +
+    "    <a class=\"jump-to-yaml\" ng-click=\"focusEdit($event, ['paths', path.pathName]) \" tooltip-placement=\"left\" tooltip=\"Jump to YAML\"></a>\n" +
     "  </header>\n" +
-    "  <ul class='operations' collapse-when=\"$parent.isCollapsed(['paths', path.pathName])\">\n" +
+    "  <ul class=\"operations\" collapse-when=\"$parent.isCollapsed(['paths', path.pathName])\">\n" +
     "    <operation ng-repeat=\"operation in path.operations\" ng-if=\"!isVendorExtension(operation.operationName)\"></operation>\n" +
     "  </ul>\n" +
-    "</li>\n" +
-    "\n"
+    "</li>"
   );
 
 
-  $templateCache.put('app/templates/schema-model.html',
+  $templateCache.put('templates/schema-model.html',
     "<div class=\"schema-model\" ng-class=\"{hidden: !schema}\">\n" +
     "  <header>\n" +
     "    <a ng-click=\"mode = 'json'\" ng-class=\"{active: mode === 'model'}\">JSON</a> <span ng-class=\"{active: mode === 'json'}\">JSON</span>\n" +
@@ -388,17 +371,17 @@ angular.module('SwaggerEditor').run(['$templateCache', function($templateCache) 
     "    <a ng-click=\"mode = 'model'\" ng-class=\"{active: mode === 'json'}\">Model</a> <span ng-class=\"{active: mode === 'model'}\">Model</span>\n" +
     "  </header>\n" +
     "\n" +
-    "  <section class=\"json animate-if\" ng-if=\"mode === 'json'\" >\n" +
+    "  <section class=\"json animate-if\" ng-if=\"mode === 'json'\">\n" +
     "    <json-formatter json=\"json\" open=\"1\"></json-formatter>\n" +
     "  </section>\n" +
     "  <section class=\"model animate-if\" ng-if=\"mode === 'model'\">\n" +
     "    <json-schema-view schema=\"json\" open=\"0\"></json-schema-view>\n" +
     "  </section>\n" +
-    "</div>\n"
+    "</div>"
   );
 
 
-  $templateCache.put('app/templates/security.html',
+  $templateCache.put('templates/security.html',
     "<div class=\"security\" ng-controller=\"SecurityCtrl\">\n" +
     "  <header>\n" +
     "    <h3 class=\"section-header\">\n" +
@@ -450,7 +433,7 @@ angular.module('SwaggerEditor').run(['$templateCache', function($templateCache) 
     "        <h4 ng-if=\"securityDefinition.scopes\">Scopes</h4>\n" +
     "        <table ng-if=\"securityDefinition.scopes\">\n" +
     "          <tbody>\n" +
-    "            <tr ng-repeat=\"(scopeName, scope) in securityDefinition.scopes\" class='scopes-table'>\n" +
+    "            <tr ng-repeat=\"(scopeName, scope) in securityDefinition.scopes\" class=\"scopes-table\">\n" +
     "              <td><strong>{{scopeName}}</strong></td>\n" +
     "              <td>{{scope}}</td>\n" +
     "            </tr>\n" +
@@ -459,12 +442,11 @@ angular.module('SwaggerEditor').run(['$templateCache', function($templateCache) 
     "      </section>\n" +
     "    </div>\n" +
     "  </div>\n" +
-    "</div>\n" +
-    "\n"
+    "</div>"
   );
 
 
-  $templateCache.put('app/templates/specs-info.html',
+  $templateCache.put('templates/specs-info.html',
     "<div class=\"info\">\n" +
     "  <header class=\"info-header\">\n" +
     "    <h3 class=\"section-header\">\n" +
@@ -492,12 +474,11 @@ angular.module('SwaggerEditor').run(['$templateCache', function($templateCache) 
     "      <a href=\"{{specs.info.license.url}}\">{{specs.info.license.url}}</a>\n" +
     "    </div>\n" +
     "  </div>\n" +
-    "</div>\n" +
-    "\n"
+    "</div>"
   );
 
 
-  $templateCache.put('app/templates/tags.html',
+  $templateCache.put('templates/tags.html',
     "<div class=\"root tags\">\n" +
     "  <div class=\"filtered\" ng-if=\"stateParams.tags\">\n" +
     "    <p>Showing only operations with following tag{{getCurrentTags().length === 1 ? '' : 's'}}:</p>\n" +
@@ -507,14 +488,13 @@ angular.module('SwaggerEditor').run(['$templateCache', function($templateCache) 
     "  </div>\n" +
     "  <div class=\"all-tags\" ng-if=\"!stateParams.tags && getAllTags().length\">\n" +
     "    <p>Filter operations by a tag:</p>\n" +
-    "    <a class=\"tag tag-color-{{tagIndexFor(tag.name)}}\" ui-sref=\"{tags: tag.name}\"\n" +
-    "      ng-repeat=\"tag in getAllTags()\" title=\"{{tag.description}}\">{{tag.name}}</a>\n" +
+    "    <a class=\"tag tag-color-{{tagIndexFor(tag.name)}}\" ui-sref=\"{tags: tag.name}\" ng-repeat=\"tag in getAllTags()\" title=\"{{tag.description}}\">{{tag.name}}</a>\n" +
     "  </div>\n" +
-    "</div>\n"
+    "</div>"
   );
 
 
-  $templateCache.put('app/templates/try-operation.html',
+  $templateCache.put('templates/try-operation.html',
     "<div ng-controller=\"TryOperation\">\n" +
     "  <h4>Request</h4>\n" +
     "  <div class=\"request\">\n" +
@@ -578,8 +558,7 @@ angular.module('SwaggerEditor').run(['$templateCache', function($templateCache) 
     "      </div>\n" +
     "      <pre ng-if=\"hasBodyParam()\" class=\"json-body\">{{getRequestBody()}}</pre>\n" +
     "    </div>\n" +
-    "    <button ng-click=\"makeCall()\" class=\"{{$parent.operationName}} call\"\n" +
-    "      ng-disabled=\"xhrInProgress\">\n" +
+    "    <button ng-click=\"makeCall()\" class=\"{{$parent.operationName}} call\" ng-disabled=\"xhrInProgress\">\n" +
     "      <span ng-if=\"xhrInProgress\">Sending...</span>\n" +
     "      <span ng-if=\"!xhrInProgress\">Send Request</span>\n" +
     "    </button>\n" +
@@ -614,12 +593,11 @@ angular.module('SwaggerEditor').run(['$templateCache', function($templateCache) 
     "      </tab>\n" +
     "    </tabset>\n" +
     "    </div>\n" +
-    "  </div>\n" +
-    "</div>\n"
+    "  </div>\n"
   );
 
 
-  $templateCache.put('app/templates/url-import.html',
+  $templateCache.put('templates/url-import.html',
     "<div class=\"modal-header\">\n" +
     "  <h3 class=\"modal-title\">Import From URL</h3>\n" +
     "</div>\n" +
@@ -634,29 +612,28 @@ angular.module('SwaggerEditor').run(['$templateCache', function($templateCache) 
     "<div class=\"modal-footer\">\n" +
     "  <button class=\"btn btn-warning\" ng-click=\"cancel()\">Cancel</button>\n" +
     "  <button class=\"btn btn-primary\" ng-click=\"ok()\" ng-disabled=\"!canImport\">Import</button>\n" +
-    "</div>\n"
+    "</div>"
   );
 
 
-  $templateCache.put('app/views/editor/editor.html',
+  $templateCache.put('views/editor/editor.html',
     "<div class=\"editor-wrapper\" ng-model=\"$root.editorValue\" ui-ace=\"{\n" +
     "  useWrapMode : true,\n" +
     "  mode: 'yaml',\n" +
     "  onLoad: aceLoaded,\n" +
     "  onChange: aceChanged}\">\n" +
-    "</div>\n"
+    "</div>"
   );
 
 
-  $templateCache.put('app/views/header/header.html',
+  $templateCache.put('views/header/header.html',
     "<div class=\"main-header\">\n" +
     "  <div ng-if=\"showAbout\" ng-include=\"'templates/intro.html'\"></div>\n" +
     "  <a href=\"http://swagger.io\" target=\"_blank\" class=\"logo\" ng-if=\"!showHeaderBranding()\"></a>\n" +
     "  <div ng-include=\"'templates/branding-left.html'\" ng-if=\"showHeaderBranding()\" class=\"branding-3rdparty\"></div>\n" +
     "  <section class=\"menu-bar\">\n" +
     "    <div class=\"file dropdown\" ng-if=\"showFileMenu()\">\n" +
-    "      <button class=\"btn btn-default dropdown-toggle\" type=\"button\"\n" +
-    "        data-toggle=\"dropdown\" id=\"fileMenu\" ng-mouseover=\"assignDownloadHrefs()\">File\n" +
+    "      <button class=\"btn btn-default dropdown-toggle\" type=\"button\" data-toggle=\"dropdown\" id=\"fileMenu\" ng-mouseover=\"assignDownloadHrefs()\">File\n" +
     "        <span class=\"caret\"></span>\n" +
     "      </button>\n" +
     "      <ul class=\"dropdown-menu\" ng-if=\"showFileMenu()\" role=\"menu\" aria-labelledby=\"fileMenu\">\n" +
@@ -681,12 +658,10 @@ angular.module('SwaggerEditor').run(['$templateCache', function($templateCache) 
     "        </li>\n" +
     "        <li role=\"presentation\" class=\"divider\"></li>\n" +
     "        <li role=\"presentation\">\n" +
-    "          <a download=\"swagger.yaml\" data-downloadurl=\"{{yamlDownloadUrl}}\"\n" +
-    "            href=\"{{yamlDownloadHref}}\" role=\"menuitem\" tabindex=\"-1\">Download YAML</a>\n" +
+    "          <a download=\"swagger.yaml\" data-downloadurl=\"{{yamlDownloadUrl}}\" href=\"{{yamlDownloadHref}}\" role=\"menuitem\" tabindex=\"-1\">Download YAML</a>\n" +
     "        </li>\n" +
     "        <li role=\"presentation\">\n" +
-    "          <a download=\"swagger.json\" downloadUrl=\"{{jsonDownloadUrl}}\"\n" +
-    "            href=\"{{jsonDownloadHref}}\" role=\"menuitem\" tabindex=\"-1\">Download JSON</a>\n" +
+    "          <a download=\"swagger.json\" downloadurl=\"{{jsonDownloadUrl}}\" href=\"{{jsonDownloadHref}}\" role=\"menuitem\" tabindex=\"-1\">Download JSON</a>\n" +
     "        </li>\n" +
     "        <li role=\"presentation\">\n" +
     "          <a role=\"menuitem\" tabindex=\"-1\" ng-click=\"openDownloadDocs()\">Download HTML Docs</a>\n" +
@@ -738,8 +713,7 @@ angular.module('SwaggerEditor').run(['$templateCache', function($templateCache) 
     "    </div>\n" +
     "\n" +
     "    <div class=\"dropdown\" ng-if=\"servers && !disableCodeGen\">\n" +
-    "       <button class=\"btn btn-default dropdown-toggle\" type=\"button\"\n" +
-    "        data-toggle=\"dropdown\" id=\"ServerMenu\">\n" +
+    "       <button class=\"btn btn-default dropdown-toggle\" type=\"button\" data-toggle=\"dropdown\" id=\"ServerMenu\">\n" +
     "        Get Servers\n" +
     "        <span class=\"caret\"></span>\n" +
     "      </button>\n" +
@@ -751,8 +725,7 @@ angular.module('SwaggerEditor').run(['$templateCache', function($templateCache) 
     "    </div>\n" +
     "\n" +
     "    <div class=\"code-gen dropdown\" ng-if=\"clients && !disableCodeGen\">\n" +
-    "       <button class=\"btn btn-default dropdown-toggle\" type=\"button\"\n" +
-    "        data-toggle=\"dropdown\" id=\"ClientMenu\">\n" +
+    "       <button class=\"btn btn-default dropdown-toggle\" type=\"button\" data-toggle=\"dropdown\" id=\"ClientMenu\">\n" +
     "        Get Clients\n" +
     "        <span class=\"caret\"></span>\n" +
     "      </button>\n" +
@@ -772,7 +745,7 @@ angular.module('SwaggerEditor').run(['$templateCache', function($templateCache) 
     "          <a href=\"https://github.com/swagger-api/swagger-editor/issues/new?labels=From%20Editor\" target=\"_blank\">Report A Bug</a>\n" +
     "        </li>\n" +
     "        <li role=\"presentation\">\n" +
-    "          <a role=\"menuitem\" tabindex=\"-1\" href=\"http://swagger.io/\"target=\"_blank\">Swagger Website</a>\n" +
+    "          <a role=\"menuitem\" tabindex=\"-1\" href=\"http://swagger.io/\" target=\"_blank\">Swagger Website</a>\n" +
     "        </li>\n" +
     "        <li role=\"presentation\">\n" +
     "          <a role=\"menuitem\" tabindex=\"-1\" ng-click=\"openAbout()\">About Swagger Editor</a>\n" +
@@ -786,26 +759,25 @@ angular.module('SwaggerEditor').run(['$templateCache', function($templateCache) 
     "  </section>\n" +
     "\n" +
     "  <section class=\"status-bar\">\n" +
-    "    <div ng-if=\"mode === 'preview'\" class=\"status {{statusClass}}\"  ng-if=\"status\">\n" +
+    "    <div ng-if=\"mode === 'preview'\" class=\"status {{statusClass}}\" ng-if=\"status\">\n" +
     "      <span class=\"icon\"></span>\n" +
     "      <span>{{status}}</span>\n" +
     "    </div>\n" +
     "    <div class=\"brandRight\" ng-include=\"'templates/branding-right.html'\" ng-if=\"showHeaderBranding()\"></div>\n" +
     "  </section>\n" +
-    "  </div>\n" +
-    "</div>\n"
+    "  </div>\n"
   );
 
 
-  $templateCache.put('app/views/main-preview.html',
+  $templateCache.put('views/main-preview.html',
     "<header ui-view=\"header\" class=\"main-header\"></header>\n" +
     "<main class=\"preveiw-mode preview-wrapper\">\n" +
     "  <div ui-view=\"preview\"></div>\n" +
-    "</main>\n"
+    "</main>"
   );
 
 
-  $templateCache.put('app/views/main.html',
+  $templateCache.put('views/main.html',
     "<header ui-view=\"header\"></header>\n" +
     "<main ng-class=\"{'preview-mode': mode === 'docs-only'}\">\n" +
     "  <div ui-layout=\"{ flow : 'column', dividerSize: '8px'}\">\n" +
@@ -816,11 +788,11 @@ angular.module('SwaggerEditor').run(['$templateCache', function($templateCache) 
     "      <div ui-view=\"preview\"></div>\n" +
     "    </div>\n" +
     "  </div>\n" +
-    "</main>\n"
+    "</main>"
   );
 
 
-  $templateCache.put('app/views/preview/preview.html',
+  $templateCache.put('views/preview/preview.html',
     "<div class=\"preview-wrapper\">\n" +
     "  <div class=\"dirty-message\" ng-if=\"isDirty\">\n" +
     "    This preview is out of date. Please <a ng-click=\"loadLatest()\">reload</a> to see the latest.\n" +
@@ -862,6 +834,6 @@ angular.module('SwaggerEditor').run(['$templateCache', function($templateCache) 
     "        <schema-model schema=\"model\" collapse-when=\"isCollapsed(['definitions', modelName])\"></schema-model>\n" +
     "      </li>\n" +
     "    </ul>\n" +
-    "</div>\n"
+    "</div>"
   );
 }]);

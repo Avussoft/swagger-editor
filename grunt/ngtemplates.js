@@ -8,20 +8,14 @@ module.exports = {
       '.run([\'$templateCache\', function($templateCache) {' + script + '}]);';
     }
   },
-  dist: {
+  app: {
     options: {
       htmlmin: '<%= htmlmin.dist %>'
     },
+    cwd: 'app',
     src: [
-      'app/templates/**/*.html',
-      'app/views/**/*.html'
-    ],
-    dest: 'dist/scripts/templates.js'
-  },
-  app: {
-    src: [
-      'app/templates/**/*.html',
-      'app/views/**/*.html'
+      'templates/**/*.html',
+      'views/**/*.html'
     ],
     dest: 'app/scripts/templates.js'
   }
