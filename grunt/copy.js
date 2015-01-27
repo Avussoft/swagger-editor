@@ -1,5 +1,7 @@
+'use strict';
+
 module.exports = {
- dist: {
+  dist: {
     files: [{
       expand: true,
       dot: true,

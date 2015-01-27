@@ -51,6 +51,7 @@ module.exports = function (grunt) {
     'less',
     'concurrent:dist',
     'autoprefixer',
+    // 'ngtemplates',
     'concat',
     'ngAnnotate',
     'copy:dist',
