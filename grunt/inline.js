@@ -4,6 +4,7 @@ module.exports = {
   options: {
     cssmin: true,
     uglify: true,
+    annotate: true,
     tag: '',
     inlineTagAttributes: {
 
